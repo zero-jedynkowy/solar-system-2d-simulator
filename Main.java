@@ -3,7 +3,6 @@ class Main
     Model model;
     View view;
     Controller controller;
-    Main main;
 
     public Main()
     {
