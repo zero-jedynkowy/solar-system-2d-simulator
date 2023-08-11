@@ -13,7 +13,7 @@ import java.awt.event.ComponentListener;
 
 public class View extends JFrame implements ComponentListener
 {
-    Dimension dimension_defaultSize;
+    public static Dimension dimension_defaultSize;
     
     TopMenu topMenu_menuBar;
     JLayeredPane layeredPane_mainPanel;
@@ -24,33 +24,28 @@ public class View extends JFrame implements ComponentListener
     public View()
     {
         super();
-        this.dimension_defaultSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        this.dimension_defaultSize = new Dimension((int)(dimension_defaultSize.getWidth()/2), (int)(dimension_defaultSize.getHeight()/2));
-        this.setSize(this.dimension_defaultSize);
+        View.dimension_defaultSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        View.dimension_defaultSize = new Dimension((int)(dimension_defaultSize.getWidth()/2), (int)(dimension_defaultSize.getHeight()/2));
+        this.setSize(View.dimension_defaultSize);
         this.setMinimumSize(this.getSize());
         this.setTitle("Astromo");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.BLACK);
-        this.repaint();
         this.addComponentListener(this);
             this.topMenu_menuBar = new TopMenu();
-            this.second();
+            this.layeredPane_mainPanel = new JLayeredPane();
+            this.layeredPane_mainPanel.setOpaque(true);
+            this.layeredPane_mainPanel.setBackground(Color.RED);
+            this.add(this.layeredPane_mainPanel, BorderLayout.CENTER);
+            this.layeredPane_mainPanel.setVisible(true);
             this.add(this.topMenu_menuBar, BorderLayout.PAGE_START);
             this.canva_canva = new Canva();
             this.layeredPane_mainPanel.add(this.canva_canva, JLayeredPane.DEFAULT_LAYER);
             this.rightMenu_rightMenu = new RightMenu();
             this.layeredPane_mainPanel.add(this.rightMenu_rightMenu, JLayeredPane.PALETTE_LAYER);
+        this.repaint();
         this.setVisible(true);
-    }
-
-    public void second()
-    {
-        this.layeredPane_mainPanel = new JLayeredPane();
-        this.layeredPane_mainPanel.setOpaque(true);
-        this.layeredPane_mainPanel.setBackground(Color.RED);
-        this.add(this.layeredPane_mainPanel, BorderLayout.CENTER);
-        this.layeredPane_mainPanel.setVisible(true);
     }
 
     @Override
