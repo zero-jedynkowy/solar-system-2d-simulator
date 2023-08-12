@@ -19,6 +19,8 @@ public class View extends JFrame implements ComponentListener
     JLayeredPane layeredPane_mainPanel;
         Canva canva_canva;
         RightMenu rightMenu_rightMenu;
+        CoordinatesMouseLabel coordinatesMouseLabel_coordinatesMouseLabel;
+        ScaleLabel scaleLabel_scaleLabel;
 
 
     public View()
@@ -35,6 +37,7 @@ public class View extends JFrame implements ComponentListener
         this.addComponentListener(this);
             this.topMenu_menuBar = new TopMenu();
             this.layeredPane_mainPanel = new JLayeredPane();
+            this.layeredPane_mainPanel.setLayout(null);
             this.layeredPane_mainPanel.setOpaque(true);
             this.layeredPane_mainPanel.setBackground(Color.RED);
             this.add(this.layeredPane_mainPanel, BorderLayout.CENTER);
@@ -44,6 +47,10 @@ public class View extends JFrame implements ComponentListener
             this.layeredPane_mainPanel.add(this.canva_canva, JLayeredPane.DEFAULT_LAYER);
             this.rightMenu_rightMenu = new RightMenu();
             this.layeredPane_mainPanel.add(this.rightMenu_rightMenu, JLayeredPane.PALETTE_LAYER);
+            this.coordinatesMouseLabel_coordinatesMouseLabel = new CoordinatesMouseLabel();
+            this.layeredPane_mainPanel.add(this.coordinatesMouseLabel_coordinatesMouseLabel, JLayeredPane.PALETTE_LAYER);
+            this.scaleLabel_scaleLabel = new ScaleLabel();
+            this.layeredPane_mainPanel.add(this.scaleLabel_scaleLabel, JLayeredPane.PALETTE_LAYER);
         this.repaint();
         this.setVisible(true);
     }
@@ -67,6 +74,8 @@ public class View extends JFrame implements ComponentListener
         {
             this.canva_canva.setSize(this.layeredPane_mainPanel.getSize());
             this.rightMenu_rightMenu.updateSize(this.layeredPane_mainPanel.getSize());
+            this.coordinatesMouseLabel_coordinatesMouseLabel.updateSize(this.layeredPane_mainPanel.getSize());
+            this.scaleLabel_scaleLabel.updateSize(this.layeredPane_mainPanel.getSize());
         }
         catch(Exception e)
         {
