@@ -19,8 +19,8 @@ public class View extends JFrame implements ComponentListener
     JLayeredPane layeredPane_mainPanel;
         Canva canva_canva;
         RightMenu rightMenu_rightMenu;
-        CoordinatesMouseLabel coordinatesMouseLabel_coordinatesMouseLabel;
-        ScaleLabel scaleLabel_scaleLabel;
+        CordsLabel label_cordsLabel;
+        ScaleLabel label_scaleLabel;
 
 
     public View()
@@ -47,10 +47,10 @@ public class View extends JFrame implements ComponentListener
             this.layeredPane_mainPanel.add(this.canva_canva, JLayeredPane.DEFAULT_LAYER);
             this.rightMenu_rightMenu = new RightMenu();
             this.layeredPane_mainPanel.add(this.rightMenu_rightMenu, JLayeredPane.PALETTE_LAYER);
-            this.coordinatesMouseLabel_coordinatesMouseLabel = new CoordinatesMouseLabel();
-            this.layeredPane_mainPanel.add(this.coordinatesMouseLabel_coordinatesMouseLabel, JLayeredPane.PALETTE_LAYER);
-            this.scaleLabel_scaleLabel = new ScaleLabel();
-            this.layeredPane_mainPanel.add(this.scaleLabel_scaleLabel, JLayeredPane.PALETTE_LAYER);
+            this.label_cordsLabel = new CordsLabel();
+            this.layeredPane_mainPanel.add(this.label_cordsLabel, JLayeredPane.PALETTE_LAYER);
+            this.label_scaleLabel = new ScaleLabel();
+            this.layeredPane_mainPanel.add(this.label_scaleLabel, JLayeredPane.PALETTE_LAYER);
         this.repaint();
         this.setVisible(true);
     }
@@ -74,8 +74,8 @@ public class View extends JFrame implements ComponentListener
         {
             this.canva_canva.setSize(this.layeredPane_mainPanel.getSize());
             this.rightMenu_rightMenu.updateSize(this.layeredPane_mainPanel.getSize());
-            this.coordinatesMouseLabel_coordinatesMouseLabel.updateSize(this.layeredPane_mainPanel.getSize());
-            this.scaleLabel_scaleLabel.updateSize(this.layeredPane_mainPanel.getSize());
+            this.label_cordsLabel.updateSize(this.layeredPane_mainPanel.getSize());
+            this.label_scaleLabel.updateSize(this.layeredPane_mainPanel.getSize());
         }
         catch(Exception e)
         {
