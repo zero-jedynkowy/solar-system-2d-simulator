@@ -1,3 +1,4 @@
+package solar_system;
 import java.awt.Dimension;
 
 public class ScaleLabel extends DefaultLabel
@@ -12,6 +13,6 @@ public class ScaleLabel extends DefaultLabel
     @Override
     public void updateText() 
     {
-        this.setText(String.format("Scale: %.1f", Model.getCurrentScale()));
+        this.setText(String.format("Scale: %.1fx", 1.0));
     }
 }

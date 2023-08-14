@@ -1,3 +1,4 @@
+package solar_system;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import java.awt.BorderLayout;
@@ -5,12 +6,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
 
-public class View extends JFrame implements ComponentListener, MouseWheelListener, MouseMotionListener
+public class View extends JFrame implements ComponentListener
 {
     public static Dimension dimension_defaultSize;
     
@@ -62,21 +59,6 @@ public class View extends JFrame implements ComponentListener, MouseWheelListene
         this.layeredPane_mainPanel.add(this.label_cordsLabel, JLayeredPane.PALETTE_LAYER);
         this.label_scaleLabel = new ScaleLabel();
         this.layeredPane_mainPanel.add(this.label_scaleLabel, JLayeredPane.PALETTE_LAYER);
-        this.canva_canva.addMouseWheelListener(this);
-        this.rightMenu_rightMenu.addMouseWheelListener(this);
-        this.canva_canva.addMouseMotionListener(this);
-    }
-
-    @Override
-    public void componentHidden(ComponentEvent arg0) 
-    {
-        ;
-    }
-
-    @Override
-    public void componentMoved(ComponentEvent arg0) 
-    {
-        ;
     }
 
     @Override
@@ -96,40 +78,20 @@ public class View extends JFrame implements ComponentListener, MouseWheelListene
     }
 
     @Override
+    public void componentHidden(ComponentEvent arg0) 
+    {
+        ;
+    }
+
+    @Override
+    public void componentMoved(ComponentEvent arg0) 
+    {
+        ;
+    }
+
+    @Override
     public void componentShown(ComponentEvent arg0) 
     {
         ;
-    }
-
-    @Override
-    public void mouseWheelMoved(MouseWheelEvent arg0) 
-    {
-        if(arg0.getSource() == this.canva_canva)
-        {
-            if(arg0.getWheelRotation() == 1)
-            {
-                Model.setPrevScale();
-            }
-            else
-            {
-                Model.setNextScale();
-            }
-            this.componentResized(null);
-        }
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent arg0)
-    {
-        ;
-    }
-
-
-    @Override
-    public void mouseMoved(MouseEvent arg0)
-    {
-        Model.setRelativeMouseX(arg0.getX());
-        Model.setRelativeMouseY(arg0.getY());
-        this.componentResized(null);
     }
 }

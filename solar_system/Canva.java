@@ -1,3 +1,4 @@
+package solar_system;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;

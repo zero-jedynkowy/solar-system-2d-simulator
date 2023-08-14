@@ -1,3 +1,4 @@
+package solar_system;
 import java.awt.Dimension;
 
 public class CordsLabel extends DefaultLabel
@@ -17,6 +18,6 @@ public class CordsLabel extends DefaultLabel
     @Override
     public void updateText() 
     {
-        this.setText(String.format("(%.1f; %.1f)", Model.getRelativeMouseX(), Model.getRelativeMouseY()));
+        this.setText(String.format("(%.1f, %.1f)", 5.0, 5.0));
     }
 }

@@ -1,8 +1,7 @@
+package solar_system;
 class Main
 {
-    Model model;
     View view;
-    Controller controller;
 
     public Main()
     {
