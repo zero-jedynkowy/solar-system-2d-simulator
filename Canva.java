@@ -22,7 +22,6 @@ public class Canva extends JPanel
     public void drawAxis(Graphics g)
     {
         g.setColor(Color.red);
-        
         g.drawLine(this.getWidth()/2, 0, this.getWidth()/2, this.getHeight());
         g.drawLine(0, this.getHeight()/2, this.getWidth(), this.getHeight()/2);
     }
